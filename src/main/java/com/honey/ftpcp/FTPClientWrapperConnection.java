@@ -16,13 +16,23 @@ public class FTPClientWrapperConnection implements FTPConnection {
 		this.ftpClient = ftpClient;
 		this.pool = pool;
 	}
+	
+	@SuppressWarnings("unchecked")
 	public <T> T unwrap(Class<T> iface) throws FTPException {
-		// TODO Auto-generated method stub
+		if(iface.isInstance(this)) {
+			return (T)this;
+		} else if(iface.isInstance(ftpClient)) {
+			return (T)ftpClient;
+		}
 		return null;
 	}
 
 	public boolean isWrapperFor(Class<?> iface) throws FTPException {
-		// TODO Auto-generated method stub
+		if(iface.isInstance(this)) {
+			return true;
+		} else if(iface.isInstance(ftpClient)) {
+			return true;
+		}
 		return false;
 	}
 
