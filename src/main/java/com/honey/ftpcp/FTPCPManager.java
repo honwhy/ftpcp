@@ -57,6 +57,7 @@ public class FTPCPManager extends PoolProperties implements FTPManager {
 		connectionProperties.put("serverTimeZoneId", serverTimeZoneId);
 		connectionProperties.put("bufferSize", bufferSize);
 		connectionProperties.put("connectTimeout", connectTimeout);
+		connectionProperties.put("localActive", localActive);
 		//parse url
 		try {
 			URL aurl = new URL(url);
@@ -124,6 +125,7 @@ public class FTPCPManager extends PoolProperties implements FTPManager {
     protected String serverTimeZoneId = null;
     protected int bufferSize = -1;
     protected int connectTimeout = -1;
+    protected String localActive = "false";
 
 	public String getUsername() {
 		return username;
@@ -223,6 +225,14 @@ public class FTPCPManager extends PoolProperties implements FTPManager {
 
 	public String getUrl() {
 		return url;
+	}
+
+	public String getLocalActive() {
+		return localActive;
+	}
+
+	public void setLocalActive(String localActive) {
+		this.localActive = localActive;
 	}
     
 }

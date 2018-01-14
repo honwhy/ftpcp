@@ -90,6 +90,14 @@ public class FTPClientFactory implements IFTPClientFactory {
 		if(connectTimeout != null) {
 			client.setConnectTimeout(Integer.parseInt(connectTimeout));
 		}
+		String localActive = connectionProperties.getProperty("localActive");
+		if(localActive != null) {
+			if("true".equals(localActive)) {
+				client.enterLocalActiveMode();
+			} else {
+				client.enterLocalPassiveMode();
+			}
+		}
 		return client;
 	}
 }
