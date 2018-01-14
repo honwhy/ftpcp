@@ -1,8 +1,5 @@
 package com.honey.ftpcp;
 
-import java.io.IOException;
-import java.io.OutputStream;
-
 import org.apache.commons.net.ftp.FTPClient;
 import org.apache.commons.pool2.impl.GenericObjectPool;
 
@@ -40,6 +37,11 @@ public class FTPClientWrapperConnection implements FTPConnection {
 		try {
 			if(pool != null && !pool.isClosed()) {
 				pool.returnObject(this);
+			} else {
+				if(ftpClient!=null) {
+					ftpClient.logout();
+					ftpClient.disconnect();
+				}
 			}
 		} catch (Exception e) {
 			//swallow everything
@@ -52,8 +54,5 @@ public class FTPClientWrapperConnection implements FTPConnection {
 		return _closed;
 	}
 
-	public boolean retrieveFile(String remote, OutputStream local) throws IOException {
-		return ftpClient.retrieveFile(remote, local);
-	}
 
 }

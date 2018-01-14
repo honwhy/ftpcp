@@ -1,8 +1,5 @@
 package com.honey.ftpcp;
 
-import java.io.IOException;
-import java.io.OutputStream;
-
 /**
  * 
  * Description: a connection to interact with server
@@ -18,7 +15,4 @@ public interface FTPConnection extends Wrapper, AutoCloseable {
 	
 	//ftp|ftps|ftp:http -- subprotocol
 	//String getSchema() throws FTPException;
-	
-	//we have to defined method that would be delegated to FTPClient
-	public boolean retrieveFile(String remote, OutputStream local)  throws IOException ;
 }

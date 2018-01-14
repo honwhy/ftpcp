@@ -23,9 +23,6 @@ public class AppTest {
 		FTPConnection ftpConnection = null;
 		try {
 			ftpConnection = ftpManager.getFTPConnection();
-			ftpConnection.retrieveFile("remote", null);
-		} catch (IOException e) {
-			e.printStackTrace();
 		} catch (FTPException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

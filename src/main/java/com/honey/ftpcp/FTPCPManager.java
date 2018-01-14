@@ -15,7 +15,7 @@ public class FTPCPManager extends PoolProperties implements FTPManager {
 	}
 	
 	protected FTPManager ftpManager = null;
-	private ObjectPool connectionPool;
+	private ObjectPool<?> connectionPool;
     /**
      * 链接FTP相关的配置
      */
