@@ -29,7 +29,7 @@ public class URLTest {
 	}
 	@Test
 	public void testParse3() throws MalformedURLException {
-		URL url = new URL("http://username:password@127.0.0.1");
+		URL url = new URL("ftp://username:password@127.0.0.1");
 		assertTrue("fail parse protocol", "ftp".equals(url.getProtocol()));
 		System.out.println("url " + url.getHost());
 		System.out.println(url.getAuthority());

@@ -10,8 +10,8 @@ public class FTPCPManagerTest {
 	public void test1() throws Exception {
 		FTPCPManager manager = new FTPCPManager();
 		manager.setUrl("ftp://127.0.0.1");
-		manager.setUsername("*");
-		manager.setPassword("*");
+		manager.setUsername("sa");
+		manager.setPassword("sa");
 		manager.setInitialSize(2);
 		
 		FTPConnection conn = manager.getFTPConnection();
