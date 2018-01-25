@@ -13,6 +13,7 @@ public class FTPCPManagerTest {
 		manager.setUsername("sa");
 		manager.setPassword("sa");
 		manager.setInitialSize(2);
+		manager.setKeepAliveTimeout(1 * 60);
 		
 		FTPConnection conn = manager.getFTPConnection();
 		assertTrue(manager.getNumActive() == 1);
