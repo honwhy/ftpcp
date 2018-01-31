@@ -36,6 +36,7 @@ public class FTPCPManager extends PoolProperties implements FTPManager {
 		IFTPClientFactory ftpClientFactory = createFTPClientFactory();
 		PoolingFTPManager newManager = new PoolingFTPManager(ftpClientFactory, this);
 		connectionPool = newManager.getPool();
+		this.ftpManager = newManager;
 		return newManager;
 	}
 	
