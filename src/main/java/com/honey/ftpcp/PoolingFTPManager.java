@@ -42,13 +42,9 @@ public class PoolingFTPManager implements FTPManager {
 		}
 	}
 	public synchronized void close() throws Exception {
-		if(_pool == null && _pool.isClosed()) {
-			return ;
-		}
-		if(_pool != null) {
-			_pool.close();
-		}
-		
+        if (_pool != null && (!_pool.isClosed())) {
+            _pool.close();
+        }
 	}
 
     public FTPConnection getFTPConnection() throws FTPException {
@@ -70,6 +66,5 @@ public class PoolingFTPManager implements FTPManager {
 		this._pool = pool;
 	}
 
-    
 
 }
